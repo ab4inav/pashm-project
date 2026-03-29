@@ -8,7 +8,7 @@
   --color-saffron: #C4722A;
   --color-saffron-light: #D4894A;
   --color-saffron-dark: #A85E1E;
-  --color-warm-stone: #A69882;
+  --color-warm-stone: #7A6E5E;
   --color-warm-stone-light: #BFB5A3;
   --color-deep-earth: #4A3728;
   --color-deep-earth-light: #6B5643;
@@ -27,6 +27,15 @@ body {
   color: var(--color-charcoal);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+/* Strengthen text over fabric mesh */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 0 20px rgba(245, 240, 232, 0.8), 0 0 40px rgba(245, 240, 232, 0.5);
+}
+
+p, span, a, li, label, input, textarea, select, button {
+  text-shadow: 0 0 12px rgba(245, 240, 232, 0.9), 0 0 24px rgba(245, 240, 232, 0.6);
 }
 
 /* Linen paper texture overlay */

@@ -124,38 +124,38 @@ export default function FabricMesh() {
         checker = mod(checker, 2.0);
         float weave = mix(warp, weft, checker) * 0.06;
 
-        // Colors
-        vec3 ivory = vec3(0.961, 0.941, 0.910);
-        vec3 warmStone = vec3(0.651, 0.596, 0.510);
+        // Colors — much darker range for visible contrast
+        vec3 sandLight = vec3(0.82, 0.78, 0.70);
+        vec3 warmStone = vec3(0.55, 0.48, 0.40);
         vec3 saffron = vec3(0.769, 0.447, 0.165);
-        vec3 deepEarth = vec3(0.290, 0.216, 0.157);
+        vec3 deepEarth = vec3(0.22, 0.16, 0.11);
 
-        // Base color from fold height
+        // Base color from fold height — strong contrast
         float foldNorm = folds * 0.5 + 0.5;
-        vec3 color = mix(ivory * 0.95, warmStone, foldNorm * 0.4);
+        vec3 color = mix(warmStone, sandLight, foldNorm * 0.7);
 
-        // Saffron in the peaks
-        float saffronMask = smoothstep(0.4, 0.8, foldNorm) * 0.25;
+        // Saffron threads in the peaks
+        float saffronMask = smoothstep(0.5, 0.85, foldNorm) * 0.45;
         color = mix(color, saffron, saffronMask);
 
-        // Dark in the valleys
-        float valleyMask = smoothstep(0.4, 0.1, foldNorm) * 0.15;
+        // Deep shadows in the valleys
+        float valleyMask = smoothstep(0.35, 0.0, foldNorm) * 0.5;
         color = mix(color, deepEarth, valleyMask);
 
-        // Apply weave texture
-        color -= weave;
+        // Apply weave texture — more visible
+        color -= weave * 1.5;
 
-        // Apply lighting
-        color *= 0.75 + diffuse * 0.25;
-        color += vec3(1.0, 0.96, 0.9) * spec * 0.08;
+        // Apply lighting — stronger contrast
+        color *= 0.6 + diffuse * 0.4;
+        color += vec3(1.0, 0.96, 0.9) * spec * 0.15;
 
-        // Vignette
-        vec2 vigUv = (uv - 0.5) * 1.4;
-        float vignette = 1.0 - dot(vigUv, vigUv) * 0.4;
+        // Vignette — softer edges
+        vec2 vigUv = (uv - 0.5) * 1.2;
+        float vignette = 1.0 - dot(vigUv, vigUv) * 0.5;
         vignette = clamp(vignette, 0.0, 1.0);
 
-        // Final alpha — visible but not overpowering
-        float alpha = 0.35 * vignette;
+        // Higher alpha for clear visibility
+        float alpha = 0.55 * vignette;
 
         // Blend with ivory background
         vec3 bg = vec3(0.961, 0.941, 0.910);

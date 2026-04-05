@@ -68,7 +68,7 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/917889557217"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-ivory/60 hover:text-saffron-light transition-colors duration-300 flex items-center gap-2"

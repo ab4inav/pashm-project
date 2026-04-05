@@ -126,7 +126,7 @@ export default function ContactPage() {
                   WhatsApp (Preferred)
                 </h3>
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/917889557217"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whatsapp-btn inline-flex items-center gap-3 px-6 py-3 text-sm tracking-wide"

@@ -54,7 +54,7 @@ export const products: Product[] = [
   {
     slug: "river-stone",
     name: "River Stone",
-    price: 22000,
+    price: 12999,
     currency: "INR",
     artisanSlug: "master-ghulam",
     artisanName: "Master Ghulam Mohammad",
@@ -67,12 +67,12 @@ export const products: Product[] = [
     care: "Dry clean only. Natural dyes may evolve subtly over time — this is a mark of authenticity, not a defect.",
     dimensions: "200 cm × 75 cm",
     weight: "190 grams",
-    images: [],
+    images: ["/river_stone.PNG"],
   },
   {
     slug: "pahari-bloom",
     name: "Pahari Bloom",
-    price: 42000,
+    price: 23999,
     currency: "INR",
     artisanSlug: "fatima-bi",
     artisanName: "Fatima Bi",
@@ -85,7 +85,7 @@ export const products: Product[] = [
     care: "Dry clean only. This is a collector's piece — store flat in acid-free tissue, away from sunlight and moisture.",
     dimensions: "200 cm × 80 cm",
     weight: "240 grams",
-    images: [],
+    images: ["/pahari-bloom.PNG"],
   },
   {
     slug: "first-frost",

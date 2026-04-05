@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { use } from "react";
 import { motion } from "framer-motion";
@@ -56,11 +57,43 @@ export default function ProductDetail({
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="placeholder-image aspect-[3/4] mb-4" />
+              {product.images.length > 0 ? (
+                <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-warm-stone/10">
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              ) : (
+                <div className="placeholder-image aspect-[3/4] mb-4" />
+              )}
               <div className="grid grid-cols-3 gap-4">
-                <div className="placeholder-image aspect-square" />
-                <div className="placeholder-image aspect-square" />
-                <div className="placeholder-image aspect-square" />
+                {product.images.length > 1 ? (
+                  product.images.slice(1, 4).map((src, i) => (
+                    <div
+                      key={i}
+                      className="relative aspect-square overflow-hidden bg-warm-stone/10"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${product.name} ${i + 2}`}
+                        fill
+                        sizes="(min-width: 1024px) 16vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    <div className="placeholder-image aspect-square" />
+                    <div className="placeholder-image aspect-square" />
+                    <div className="placeholder-image aspect-square" />
+                  </>
+                )}
               </div>
             </motion.div>
 
@@ -106,7 +139,7 @@ export default function ProductDetail({
 
               <div className="mb-8">
                 <a
-                  href={`https://wa.me/919999999999?text=${whatsappMessage}`}
+                  href={`https://wa.me/917889557217?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whatsapp-btn flex items-center justify-center gap-3 w-full py-4 text-sm tracking-wide"

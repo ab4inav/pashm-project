@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { products } from "@/data/products";
@@ -125,7 +126,19 @@ export default function ShopPage() {
                         href={`/shop/${product.slug}`}
                         className="group block"
                       >
-                        <div className="placeholder-image aspect-[3/4] mb-6 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1" />
+                        {product.images.length > 0 ? (
+                          <div className="relative aspect-[3/4] mb-6 overflow-hidden bg-warm-stone/10 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1">
+                            <Image
+                              src={product.images[0]}
+                              alt={product.name}
+                              fill
+                              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                              className="object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="placeholder-image aspect-[3/4] mb-6 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1" />
+                        )}
                         <h3
                           className="text-xl mb-1 group-hover:text-saffron transition-colors duration-300"
                           style={{ fontFamily: "var(--font-serif)" }}
@@ -207,7 +220,19 @@ export default function ShopPage() {
                   href={`/shop/${product.slug}`}
                   className="group block"
                 >
-                  <div className="placeholder-image aspect-[3/4] mb-6 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1" />
+                  {product.images.length > 0 ? (
+                    <div className="relative aspect-[3/4] mb-6 overflow-hidden bg-warm-stone/10 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1">
+                      <Image
+                        src={product.images[0]}
+                        alt={product.name}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="placeholder-image aspect-[3/4] mb-6 group-hover:shadow-lg transition-all duration-500 group-hover:-translate-y-1" />
+                  )}
                   <h3
                     className="text-xl mb-1 group-hover:text-saffron transition-colors duration-300"
                     style={{ fontFamily: "var(--font-serif)" }}
